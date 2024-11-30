@@ -18,7 +18,6 @@ yargs.command({
     },
     handler: function(argv) {
         notes.createNote(argv.title, argv.body)
-        console.log('note added')
     }
 })
 
