@@ -17,7 +17,7 @@ module.exports = {
     createNote: function(title, body) {
         let notes = this.loadNotes()
         let findNote = notes.find(note => note.title == title)
-        if (findNote.title == title) {
+        if (title == findNote.title) {
             console.log(`The note ${findNote.title} already exist`)
         } else {
             notes.push ({
@@ -25,6 +25,7 @@ module.exports = {
                 body: body
             })
             this.saveNotes(notes)
+            console.log('note added')
         }
     },
     removeNote: function(title) {
@@ -36,7 +37,7 @@ module.exports = {
         let notes = this.loadNotes()
         let findNote = notes.find(note => note.title == title)
         console.log(`Titulo: ${findNote.title}`)
-        console.log(`Descripcion: : ${findNote.title}`)
+        console.log(`Descripcion: : ${findNote.body}`)
     },
     listNotes: function() {
         let notes = this.loadNotes()
