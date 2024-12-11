@@ -5,6 +5,7 @@ let addNotes = () => {
     const notaInput = document.querySelector('#notaInput')
     notas.push(notaInput.value)
     showNotes()
+    notaInput.value = ""
 }
 
 let showNotes = () => {
@@ -13,14 +14,24 @@ let showNotes = () => {
         const li = document.createElement('li')
         li.innerHTML = `
         ${nota}
-        <button onclick="deleteNotes(${index})" class="delete">Eliminar Nota</button>
+        <div>
+            <button onclick="editNotes(${index})" class="liButton" id="edit">EDITAR</button>
+            <button onclick="deleteNotes(${index})" class="liButton" id="delete">ELIMINAR</button>
+        </div>
         `
         lista.appendChild(li)
-        notaInput.value = ""
     });
+    notaInput.focus()
 }
 
 let deleteNotes = (index) => {
     notas.splice(index, 1)
     showNotes()
+}
+
+let editNotes = (index) => {
+    const notaInput = document.querySelector('#notaInput')
+    let note = notas[index]
+    notaInput.value = note
+    deleteNotes(index)
 }
