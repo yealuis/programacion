@@ -30,6 +30,9 @@ ul {
     border: 3px solid #3e0da5;
     border-radius: 10px;
 }
+ul:empty {
+    visibility: hidden;
+}
 li {
     margin: 5px 0;
     padding: 10px;
