@@ -1,6 +1,8 @@
+//Se crea un array para guardar las notas
 let notas = []
 let lista = document.querySelector('#listaNotas')
 
+//Funcion para agregar las notas al array
 let addNotes = () => {
     const notaInput = document.querySelector('#notaInput')
     notas.push(notaInput.value)
@@ -8,6 +10,7 @@ let addNotes = () => {
     notaInput.value = ""
 }
 
+//Funcion para mostrar las notas en la pagina
 let showNotes = () => {
     lista.innerHTML = ""
     notas.forEach((nota, index) => {
@@ -24,11 +27,13 @@ let showNotes = () => {
     notaInput.focus()
 }
 
+//Funcion para eliminar una nota
 let deleteNotes = (index) => {
     notas.splice(index, 1)
     showNotes()
 }
 
+//Funcion para editar una nota
 let editNotes = (index) => {
     const notaInput = document.querySelector('#notaInput')
     let note = notas[index]
